@@ -132,12 +132,13 @@
                           (cons "\\." '(ac-source-semantic)))
              (add-to-list 'ac-omni-completion-sources
                           (cons "->" '(ac-source-semantic)))
-             (add-to-list 'ac-sources 'ac-source-gtags)))
+             (add-to-list 'ac-sources 'ac-source-gtags)
+             (add-to-list 'ac-sources 'ac-source-etags))
+          )
 
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (local-set-key "\C-c?" 'auto-complete)
-             (local-set-key "\M-." 'gtags-find-tag)))
+             (local-set-key "\C-c?" 'auto-complete)))
 
 ;; (defun semantic-and-gtags-complete ()
 ;;   (interactive)

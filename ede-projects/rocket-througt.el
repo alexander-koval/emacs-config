@@ -22,7 +22,8 @@
                                             "/opt/cocos2d-x/cocos2dx/platform/third_party/linux/libjpeg"
                                             "/opt/cocos2d-x/cocos2dx/kazmath/include"
                                             "/opt/cocos2d-x/CocosDenshion/include"
-                                            "/opt/cocos2d-x/extensions/"))
+                                            "/opt/cocos2d-x/extensions/")
+                      )
 
 (provide 'rocket-througt)
 ;;; rocket-througt.el end here.
