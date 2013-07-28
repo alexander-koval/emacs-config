@@ -125,7 +125,7 @@
                        (add-to-list 'ac-sources 'ac-source-symbols))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; C-common-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Enables omnicompletion with `c-mode-common'.
+;; Enables comnicompletion with `c-mode-common'.
 (add-hook 'c-mode-common-hook
           '(lambda ()
              (add-to-list 'ac-omni-completion-sources
@@ -133,12 +133,29 @@
              (add-to-list 'ac-omni-completion-sources
                           (cons "->" '(ac-source-semantic)))
              (add-to-list 'ac-sources 'ac-source-gtags)
-             (add-to-list 'ac-sources 'ac-source-etags))
+             (add-to-list 'ac-sources 'ac-source-etags)
+
+             (local-set-key "\C-xt" 'eassist-switch-h-cpp)
+             (local-set-key "\C-ce" 'eassist-list-methods)
+             (local-set-key "\C-c\C-r" 'semantic-symref))
           )
 
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (local-set-key "\C-c?" 'auto-complete)))
+(defun set-key-completion-hook ()
+  "Set up hot keys for make auto complete."
+  (local-set-key [(control return)]
+                 'semantic-ia-complete-symbol-menu)
+  (local-set-key "\C-c?" 'auto-complete)
+  ;; (local-set-key "\C-x?" 'semantic-ia-complete-symbol)
+  (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+  (local-set-key "\C-c=" 'semantic-decoration-include-visit)
+  (local-set-key "\C-cq" 'semantic-ia-show-doc)
+  (local-set-key "\C-cj" 'semantic-fast-jump)
+  (local-set-key "\C-cs" 'semantic-ia-show-summary)
+  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
+
+(add-hook 'c-mode-common-hook 'set-key-completion-hook)
+(add-hook 'lisp-mode-hook 'set-key-completion-hook)
+(add-hook 'emacs-lisp-mode-hook 'alexott/cedet-hook)
 
 ;; (defun semantic-and-gtags-complete ()
 ;;   (interactive)
