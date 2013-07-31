@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;; Configuration for VictorianRushHour project
 ;;; Code:
-(ede-cpp-root-project "RocketThrougt"
-                      :name "Rocket Througt"
+(ede-cpp-root-project "VictorianRushHour"
+                      :name "Victorian Rush Hour"
                       :file "~/Workspace/C++/Emacs/VictorianRushHour/VictorianRushHour/Makefile"
                       :include-path '("/"
                                      "/linux"
