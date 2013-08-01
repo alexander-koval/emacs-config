@@ -155,7 +155,7 @@
 
 (add-hook 'c-mode-common-hook 'set-key-completion-hook)
 (add-hook 'lisp-mode-hook 'set-key-completion-hook)
-(add-hook 'emacs-lisp-mode-hook 'alexott/cedet-hook)
+(add-hook 'emacs-lisp-mode-hook 'set-key-completion-hook)
 
 ;; (defun semantic-and-gtags-complete ()
 ;;   (interactive)

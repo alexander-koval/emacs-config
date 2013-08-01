@@ -19,20 +19,6 @@
 (add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-highlight-func-mode)
 
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform/third_party/linux" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform/third_party/linux/libfreetype2" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform/third_party/linux/glew-1.7.0/glew-1.7.0/include" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform/third_party/linux/libxml2" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform/third_party/linux/libjpeg" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform/linux" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/platform" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/cocoa" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/include" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/cocos2dx/kazmath/include" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/CocosDenshion/include" 'c++-mode)
-(semantic-add-system-include "/opt/cocos2d-x/extensions" 'c++-mode)
-
 (semanticdb-enable-gnu-global-databases 'c-mode t)
 (semanticdb-enable-gnu-global-databases 'c++-mode t)
 
@@ -52,6 +38,6 @@
 (load victorian-rush-hour-file)
 
 (require 'cedet-java)
-
+(require 'ecb)
 (provide 'init-ede-project)
 ;;; init-ede-project.el end here
