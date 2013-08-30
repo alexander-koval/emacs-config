@@ -74,18 +74,18 @@
 ;;; Require
 (require 'auto-complete)
 (require 'auto-complete-config)
-(require 'auto-complete-gtags nil t)
-(require 'auto-complete-extension nil t) ;optional
-(require 'auto-complete-yasnippet nil t) ;optional
-(require 'auto-complete-semantic nil t)  ;optional
-(require 'auto-complete-gtags nil t)     ;optional
+;;(require 'auto-complete-extension nil t) ;optional
+;;(require 'auto-complete-yasnippet nil t) ;optional
+;;(require 'auto-complete-semantic nil t)  ;optional
+;;(require 'auto-complete-etags nil t)     ;optional
+;;(require 'auto-complete-gtags nil t)     ;optional
 
 ;;; Code:
 
 ;; Generic setup.
 (global-auto-complete-mode t)           ;enable global-mode
-(setq ac-auto-start t)                  ;automatically start
-(setq ac-dwim t)                        ;Do what i mean
+;;(setq ac-auto-start t)                  ;automatically start
+;;(setq ac-dwim t)                        ;Do what i mean
 ;;(setq ac-override-local-map nil)        ;don't override local map
 
 ;; The mode that automatically startup.
@@ -105,36 +105,27 @@
 ;; The sources for common all mode.
 (custom-set-variables
  '(ac-sources
-   '(
-;;     ac-source-yasnippet ;this source need file `auto-complete-yasnippet.el'
+   '(ac-source-yasnippet ;this source need file `auto-complete-yasnippet.el'
      ac-source-semantic    ;this source need file `auto-complete-semantic.el'
-     ;; ac-source-omni
      ac-source-abbrev
      ac-source-words-in-buffer
      ac-source-files-in-current-dir
      ac-source-filename)
 
+   ;; (dolist (hook (list
+   ;;                'emacs-lisp-mode-hook
+   ;;                'lisp-interaction-mode
+   ;;                ))
+   ;;   (add-hook hook '(lambda ()
+   ;;                     (add-to-list 'ac-sources 'ac-source-symbols))))
+   ))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-   (dolist (hook (list
-                  'emacs-lisp-mode-hook
-                  'lisp-interaction-mode
-                  ))
-     (add-hook hook '(lambda ()
-                       (add-to-list 'ac-sources 'ac-source-symbols))))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; C-common-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; c-common-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enables comnicompletion with `c-mode-common'.
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (add-to-list 'ac-omni-completion-sources
-                          (cons "\\." '(ac-source-semantic)))
-             (add-to-list 'ac-omni-completion-sources
-                          (cons "->" '(ac-source-semantic)))
-             (add-to-list 'ac-sources 'ac-source-gtags)
              (add-to-list 'ac-sources 'ac-source-etags)
-
              (local-set-key "\C-xt" 'eassist-switch-h-cpp)
              (local-set-key "\C-ce" 'eassist-list-methods)
              (local-set-key "\C-c\C-r" 'semantic-symref))
@@ -149,7 +140,7 @@
   (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
   (local-set-key "\C-c=" 'semantic-decoration-include-visit)
   (local-set-key "\C-cq" 'semantic-ia-show-doc)
-  (local-set-key "\C-cj" 'semantic-fast-jump)
+  (local-set-key "\C-cj" 'semantic-ia-fast-jump)
   (local-set-key "\C-cs" 'semantic-ia-show-summary)
   (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
 
