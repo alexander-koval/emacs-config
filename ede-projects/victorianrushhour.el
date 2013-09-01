@@ -16,26 +16,26 @@
                                       "/linux"
                                       "/Classes"
                                       )
-                      :system-include-path '(cocos2dx-dir
-                                             (concat cocos2dx-dir "/include")
-                                             (concat cocos2dx-dir
-                                                     "/kazmath/include")
-                                             (concat cocos2dx-dir "/platform")
-                                             (concat cocos2dx-dir
-                                                     "/platform/linux")
-                                             (concat cocos2dx-dir
-                                                     "/platform/third_party/linux")
-                                             (concat cocos2dx-dir
-                                                     "/platform/third_party/linux/libfreetype2")
-                                             (concat cocos2dx-dir "/cocoa")
-                                             (concat cocos2dx-dir
-                                                     "/platform/third_party/linux/glew-1.7.0/glew-1.7.0/include")
-                                             (concat cocos2dx-dir
-                                                     "/platform/third_party/linux/libxml2")
-                                             (concat cocos2dx-dir
-                                                     "/platform/third_party/linux/libjpeg")
-                                             (concat cocosdenshion-dir "/include")
-                                             (concat cocos2dx-dir "/extensions"))
+                      :system-include-path `(,(concat cocos2dx-dir "/")
+                                             ,(concat cocos2dx-dir "/include/")
+                                             ,(concat cocos2dx-dir
+                                                      "/kazmath/include/")
+                                             ,(concat cocos2dx-dir "/platform/")
+                                             ,(concat cocos2dx-dir
+                                                      "/platform/linux/")
+                                             ,(concat cocos2dx-dir
+                                                      "/platform/third_party/linux/")
+                                             ,(concat cocos2dx-dir
+                                                      "/platform/third_party/linux/libfreetype2/")
+                                             ,(concat cocos2dx-dir "/cocoa/")
+                                             ,(concat cocos2dx-dir
+                                                      "/platform/third_party/linux/glew-1.7.0/glew-1.7.0/include/")
+                                             ,(concat cocos2dx-dir
+                                                      "/platform/third_party/linux/libxml2/")
+                                             ,(concat cocos2dx-dir
+                                                      "/platform/third_party/linux/libjpeg/")
+                                             ,(concat cocosdenshion-dir "/include/")
+                                             ,(concat cocos2dx-dir "/extensions/"))
                       :targets
                       (list
                        (ede-cpp-root-target "victorian-rush-hour-linux"
@@ -54,9 +54,14 @@
                                                              "Classes/GameSprite.h"
                                                              "Classes/Player.h"
                                                              "Classes/Terrain.h")))
-;;                      :spp-table '('("CC_DLL" . "") '("EXPORT_DLL" . ""))
-;;                      :spp-files '(concat (cocos2dx-dir "/include/cocos2d.h"))
-                      )
+                      :spp-table '(("CC_DLL" . "")
+                                   ("EXPORT_DLL" . ""))
+                      :spp-files  `(,(concat cocos2dx-dir
+                                             "/platform/linux/CCPlatformDefine.h")
+                                    ,(concat cocos2dx-dir
+                                             "/platform/CCPlatformMacros.h")))
+;; :spp-files '("/opt/cocos2d-x/cocos2dx/platform/linux/CCPlatformDefine.h"
+;;              "/opt/cocos2d-x/cocos2dx/platform/CCPlatformMacros.h"))
 
 (provide 'victorianrushhour)
 ;;; victorianrushhour.el ends here

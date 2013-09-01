@@ -33,7 +33,13 @@
 (global-srecode-minor-mode t)
 
 ;;(global-set-key [f2] 'sr-speedbar-toggle)
-(global-set-key [f2] 'ecb-toggle-ecb-windows)
+(global-set-key (kbd "<f2>") 'ecb-toggle-ecb-windows)
+
+(defun set-key-ede-mode-hook ()
+  "Set up hot keys for simplify working in ede."
+  (local-set-key (kbd "C-c , f") 'ede-find-file))
+
+(add-hook 'c-mode-common-hook 'set-key-ede-mode-hook)
 
 (defvar ede-projects-dir (expand-file-name "ede-projects"
                                          (file-name-directory load-file-name))
@@ -46,8 +52,6 @@
 (defvar victorian-rush-hour-file (expand-file-name "victorianrushhour.el" ede-projects-dir)
   "This is configuration file for Victorian Rush Hour Project.")
 (load victorian-rush-hour-file)
-
-
 
 (provide 'init-ede-project)
 ;;; init-ede-project.el ends here
