@@ -53,5 +53,10 @@
   "This is configuration file for Victorian Rush Hour Project.")
 (load victorian-rush-hour-file)
 
+(defvar rumble-file (expand-file-name "rumble.el" ede-projects-dir)
+  "This is configuration file for Rumble Project.")
+(load rumble-file)
+
+
 (provide 'init-ede-project)
 ;;; init-ede-project.el ends here
