@@ -4,6 +4,7 @@
 ;;; Code:
 (require 'ede/cpp-root)
 
+(defvar project-dir "~/Workspace/C++/Cocos2dx/Rumble")
 (defvar cocos2dx-dir "/opt/cocos2d-x/cocos2dx")
 (defvar cocosdenshion-dir "/opt/cocos2d-x/CocosDenshion")
 (defvar extensions-dir "/opt/cocos2d-x/extensions")
@@ -11,7 +12,7 @@
 (ede-cpp-root-project "Rumble"
                       :name "Rumble"
                       :version "0.1"
-                      :file "~/Workspace/C++/Cocos2dx/Rumble/README.md"
+                      :file (concat project-dir "/README.md")
                       :include-path '("/"
                                       "/proj.linux"
                                       "/Classes"
@@ -53,7 +54,8 @@
                                     ,(concat cocos2dx-dir
                                              "/platform/CCPlatformMacros.h")
                                     ,(concat cocos2dx-dir
-                                             "/platform/CCPlatformConfig.h")))
+                                             "/platform/CCPlatformConfig.h"))
+                      :compile-command (concat "make -C " project-dir "proj.linux/"))
 ;; :spp-files '("/opt/cocos2d-x/cocos2dx/platform/linux/CCPlatformDefine.h"
 ;;              "/opt/cocos2d-x/cocos2dx/platform/CCPlatformMacros.h"))
 

@@ -37,7 +37,8 @@
 
 (defun set-key-ede-mode-hook ()
   "Set up hot keys for simplify working in ede."
-  (local-set-key (kbd "C-c , f") 'ede-find-file))
+  (local-set-key (kbd "C-c , f") 'ede-find-file)
+  (local-set-key (kbd "<f9>") 'compile))
 
 (add-hook 'c-mode-common-hook 'set-key-ede-mode-hook)
 
@@ -49,9 +50,9 @@
 ;; (load rocket-through-file)
 
 ;; ;; ;;
-(defvar victorian-rush-hour-file (expand-file-name "victorianrushhour.el" ede-projects-dir)
-  "This is configuration file for Victorian Rush Hour Project.")
-(load victorian-rush-hour-file)
+;; (defvar victorian-rush-hour-file (expand-file-name "victorianrushhour.el" ede-projects-dir)
+;;   "This is configuration file for Victorian Rush Hour Project.")
+;; (load victorian-rush-hour-file)
 
 (defvar rumble-file (expand-file-name "rumble.el" ede-projects-dir)
   "This is configuration file for Rumble Project.")
